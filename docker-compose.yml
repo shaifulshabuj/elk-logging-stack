@@ -55,6 +55,7 @@ services:
       - ELASTICSEARCH_URL=http://elasticsearch:9200
     volumes:
       - ./config/kibana/kibana.yml:/usr/share/kibana/config/kibana.yml
+      - ./config/kibana/sample-app-dashboards.ndjson:/usr/share/kibana/config/sample-app-dashboards.ndjson
     depends_on:
       - elasticsearch
     networks:
@@ -84,12 +85,29 @@ services:
     container_name: kibana-init
     volumes:
       - ./config/kibana/setup_kibana.sh:/usr/local/bin/setup_kibana.sh
+      - ./config/kibana/sample-app-dashboards.ndjson:/usr/share/kibana/config/sample-app-dashboards.ndjson
     command: ["/bin/sh", "-c", "chmod +x /usr/local/bin/setup_kibana.sh && /usr/local/bin/setup_kibana.sh"]
     depends_on:
       - elasticsearch
       - kibana
     networks:
       - elk
+
+  sample-app:
+    build:
+      context: ./sample-app
+    container_name: sample-app
+    ports:
+      - "8080:3000"
+    environment:
+      - LOGSTASH_HOST=logstash
+      - LOGSTASH_PORT=5000
+      - PORT=3000
+    depends_on:
+      - logstash
+    networks:
+      - elk
+    restart: unless-stopped
 
 networks:
   elk:
