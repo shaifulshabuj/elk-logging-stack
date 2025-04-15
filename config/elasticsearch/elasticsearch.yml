@@ -1,0 +1,28 @@
+cluster.name: "elk-logging-cluster"
+node.name: "elk-node-1"
+network.host: 0.0.0.0
+http.port: 9200
+
+# Performance settings
+bootstrap.memory_lock: true
+thread_pool.write.queue_size: 1000
+
+# Path settings
+path.data: /usr/share/elasticsearch/data
+path.logs: /usr/share/elasticsearch/logs
+
+# Discovery settings (single-node)
+discovery.type: single-node
+
+# Security settings (basic for development)
+xpack.security.enabled: false
+
+# Cross-origin resource sharing
+http.cors.enabled: true
+http.cors.allow-origin: "*"
+
+# Resources
+indices.fielddata.cache.size: 20%
+indices.memory.index_buffer_size: 10%
+indices.queries.cache.size: 5%
+indices.memory.max_index_buffer_size: 512mb

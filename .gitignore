@@ -1,0 +1,67 @@
+# ELK Stack .gitignore
+
+# Data directories
+data/
+logs/
+
+# Elasticsearch data
+elasticsearch/data/
+
+# Log files
+*.log
+
+# Environment variables
+.env
+
+# Temporary files
+*.tmp
+*.temp
+*.swp
+.DS_Store
+
+# Docker volumes
+esdata/
+kibana/
+logstash/
+
+# Node.js dependencies (if any)
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# IDE files
+.idea/
+.vscode/
+*.iml
+*.iws
+*.ipr
+*.sublime-*
+
+# Python virtual environments (if any)
+venv/
+env/
+.venv/
+.env/
+.envrc
+
+# Compiled files
+*.class
+*.pyc
+*.pyo
+*.o
+*.so
+
+# Dependency directories
+dist/
+build/
+
+# Specific to the project
+planning.md
+task.md
+PLANNING.md
+TASK.md
+
+# Secrets
+*.pem
+*.key
+*_secret*
