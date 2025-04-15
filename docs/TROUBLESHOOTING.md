@@ -21,7 +21,7 @@ This guide provides solutions for common issues encountered when using the ELK S
 
 3. **Check Permissions**:
    - Ensure the data directory has correct permissions
-   - Run `docker-compose down -v` to remove volumes and try again
+   - Run `docker compose down -v` to remove volumes and try again
 
 ### Cluster Health is Red
 
@@ -71,7 +71,7 @@ This guide provides solutions for common issues encountered when using the ELK S
      stdout { codec => rubydebug }
    }
    ```
-   - Restart Logstash and check logs with `docker-compose logs -f logstash`
+   - Restart Logstash and check logs with `docker compose logs -f logstash`
 
 3. **Test Input Directly**:
    - Send a test message to Logstash:
@@ -108,15 +108,15 @@ This guide provides solutions for common issues encountered when using the ELK S
 
 **Solutions**:
 1. **Check Kibana Status**:
-   - Run `docker-compose ps` to verify Kibana is running
-   - Check logs with `docker-compose logs kibana`
+   - Run `docker compose ps` to verify Kibana is running
+   - Check logs with `docker compose logs kibana`
 
 2. **Check Elasticsearch Connection**:
    - Verify Elasticsearch is running and healthy
    - Check Kibana configuration points to correct Elasticsearch URL
 
 3. **Restart Kibana**:
-   - Try restarting just Kibana: `docker-compose restart kibana`
+   - Try restarting just Kibana: `docker compose restart kibana`
    - Wait 30 seconds for it to initialize
 
 ### No Data in Kibana
@@ -308,13 +308,13 @@ If you need a complete reset:
 
 ```bash
 # Stop all containers
-docker-compose down -v
+docker compose down -v
 
 # Remove Elasticsearch data
 sudo rm -rf data/elasticsearch/*
 
 # Restart with clean state
-docker-compose up -d
+docker compose up -d
 ```
 
 ## Getting Help
@@ -323,10 +323,10 @@ If you encounter issues not covered in this guide:
 
 1. **Check Docker Logs**:
    ```bash
-   docker-compose logs -f
-   docker-compose logs -f elasticsearch
-   docker-compose logs -f logstash
-   docker-compose logs -f kibana
+   docker compose logs -f
+   docker compose logs -f elasticsearch
+   docker compose logs -f logstash
+   docker compose logs -f kibana
    ```
 
 2. **Elasticsearch Health**:

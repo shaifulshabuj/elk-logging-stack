@@ -131,7 +131,7 @@ filter {
 3. Restart the Logstash service:
 
 ```bash
-docker-compose restart logstash
+docker compose restart logstash
 ```
 
 ## Adding a New Index Pattern in Kibana

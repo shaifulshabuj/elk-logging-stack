@@ -48,7 +48,7 @@ This script will:
 Alternatively, you can start the stack manually:
 
 ```bash
-docker-compose up -d
+docker compose up -d
 ```
 
 ### 4. Verify the Installation
@@ -111,7 +111,7 @@ Kibana is set up with:
 Elasticsearch data is persisted using Docker volumes. If you need to reset all data, use:
 
 ```bash
-docker-compose down -v
+docker compose down -v
 ```
 
 ## Resource Usage
