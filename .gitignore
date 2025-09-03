@@ -21,8 +21,14 @@ elasticsearch/data/
 
 # Docker volumes
 esdata/
-kibana/
-logstash/
+
+# Docker volume data directories (not config)
+kibana/data/
+logstash/data/
+
+# But allow config directories
+!config/kibana/
+!config/logstash/
 
 # Node.js dependencies (if any)
 node_modules/

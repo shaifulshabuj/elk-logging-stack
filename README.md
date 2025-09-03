@@ -27,15 +27,21 @@ A comprehensive centralized logging solution using the Elasticsearch, Logstash, 
    cd elk-logging-stack
    ```
 
-2. Start the ELK stack:
+2. Verify your setup (optional but recommended):
+   ```bash
+   ./verify_workspace.sh
+   ```
+
+3. Start the ELK stack:
    ```bash
    ./restart_elk.sh
    ```
 
-3. Access Kibana:
+4. Access Kibana:
    - Open http://localhost:5601 in your browser
-   - Default username: `elastic`
-   - Default password: `changeme`
+   - The stack uses single-node Elasticsearch with security disabled for development
+
+> 📖 **Need detailed build instructions?** See [BUILD.md](BUILD.md) for comprehensive workspace building guidance, including prerequisites, troubleshooting, and development workflow.
 
 ## Directory Structure
 
@@ -84,8 +90,9 @@ Test just the Logstash pipeline:
 
 ## Documentation
 
-For detailed documentation, see the following guides in the `docs/` directory:
+For detailed documentation, see the following guides:
 
+- **[BUILD.md](BUILD.md)** - Complete workspace building guide (start here!)
 - [Setup Guide](docs/SETUP.md) - Detailed setup instructions
 - [Usage Guide](docs/USAGE.md) - How to add new log sources
 - [Dashboard Guide](docs/DASHBOARDS.md) - Creating custom dashboards
