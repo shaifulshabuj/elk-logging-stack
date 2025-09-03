@@ -1,0 +1,32 @@
+server.name: kibana
+server.host: "0.0.0.0"
+elasticsearch.hosts: ["http://elasticsearch:9200"]
+monitoring.ui.container.elasticsearch.enabled: true
+
+# Disable security for development
+xpack.security.enabled: false
+
+# Logging configuration
+logging.appenders:
+  file:
+    type: file
+    fileName: /usr/share/kibana/logs/kibana.log
+    layout:
+      type: json
+
+logging.root:
+  appenders:
+    - default
+    - file
+  level: info
+
+# Development settings
+server.maxPayload: 1048576
+elasticsearch.requestTimeout: 30000
+elasticsearch.shardTimeout: 30000
+
+# Index patterns
+kibana.index: ".kibana"
+
+# Default space
+kibana.defaultAppId: "discover"
