@@ -27,12 +27,17 @@ A comprehensive centralized logging solution using the Elasticsearch, Logstash, 
    cd elk-logging-stack
    ```
 
-2. Start the ELK stack:
+2. Verify your setup (optional but recommended):
+   ```bash
+   ./verify_workspace.sh
+   ```
+
+3. Start the ELK stack:
    ```bash
    ./restart_elk.sh
    ```
 
-3. Access Kibana:
+4. Access Kibana:
    - Open http://localhost:5601 in your browser
    - The stack uses single-node Elasticsearch with security disabled for development
 

@@ -421,3 +421,26 @@ After successfully building the workspace:
 5. **Scale Up**: Consider production deployment options
 
 For detailed usage instructions, see [USAGE.md](docs/USAGE.md).
+
+## Quick Validation
+
+Once you've built the workspace, you can quickly validate everything is working:
+
+```bash
+# Run the workspace verification
+./verify_workspace.sh
+
+# Start the ELK stack
+./restart_elk.sh
+
+# Send a test log
+echo '{"level":"INFO","message":"Hello ELK!","service":"test"}' | nc localhost 5001
+
+# Check Elasticsearch has the log
+curl -s "http://localhost:9200/_search?q=Hello" | grep -o '"_score"[^}]*'
+
+# Open Kibana to see your logs
+# Visit: http://localhost:5601/app/discover
+```
+
+The workspace is ready when you see logs appearing in Kibana's Discover view!
